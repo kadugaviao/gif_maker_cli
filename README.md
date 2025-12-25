@@ -7,7 +7,7 @@ Ferramenta CLI para criar GIFs animados a partir de suas imagens.
 1. Clone e entre no diretório;
 
 ```bash
-git clone git clone https://github.com/kadugaviao/gif_maker_cli.git
+git clone https://github.com/kadugaviao/gif_maker_cli.git
 ```
 
 ```bash
