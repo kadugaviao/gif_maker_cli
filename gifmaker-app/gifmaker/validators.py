@@ -2,10 +2,17 @@
 File validation and discovery utilities.
 """
 
+import re
 from pathlib import Path
 from typing import List
 
 from .constants import SUPPORTED_FORMATS
+
+
+def _natural_sort_key(path: Path):
+    """Sort helper to order files with numbers naturally (e.g., 1, 2, 10)."""
+    parts = re.split(r"(\d+)", path.stem)
+    return [int(p) if p.isdigit() else p.lower() for p in parts]
 
 
 def get_images_from_folder(folder_path: str, pattern: str = '*') -> List[Path]:
@@ -32,7 +39,7 @@ def get_images_from_folder(folder_path: str, pattern: str = '*') -> List[Path]:
         raise ValueError(f"Path is not a directory: {folder_path}")
     
     image_files = []
-    for file_path in sorted(folder.glob(pattern)):
+    for file_path in sorted(folder.glob(pattern), key=_natural_sort_key):
         if file_path.is_file() and file_path.suffix.lower() in SUPPORTED_FORMATS:
             image_files.append(file_path)
     
