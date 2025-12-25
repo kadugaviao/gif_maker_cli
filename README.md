@@ -8,7 +8,11 @@ Ferramenta CLI para criar GIFs animados a partir de suas imagens.
 
 ```bash
 git clone <url-do-repositorio>
+```
+
+```bash
 cd gif_maker_cli
+cd gifmaker-app
 ```
 
 2. Crie e ative o ambiente virtual;
